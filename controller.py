@@ -1,6 +1,6 @@
 from fastapi import APIRouter, File, UploadFile
 from fastapi.responses import JSONResponse
-from service import analyze_routes_service
+from service import analyze_routes_service, analyze_po_pi_service, analyze_po_mtc_service
 
 router = APIRouter()
 
@@ -17,11 +17,19 @@ async def analyze_routes(trucks_file: UploadFile = File(...), invoice_file: Uplo
 
 @router.post("/po-vs-pi")
 async def analyze_po_vs_pi(po_file: UploadFile = File(...), pi_file: UploadFile = File(...)):
-    return {"result": "Not yet implemented"}
+    try:
+        result = await analyze_po_pi_service(po_file, pi_file)
+        return {"result": result}
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
 
 @router.post("/po-vs-mtc")
 async def analyze_po_vs_mtc(po_file: UploadFile = File(...), mtc_file: UploadFile = File(...)):
-    return {"result": "Not yet implemented"}
+    try:
+        result = await analyze_po_mtc_service(po_file, mtc_file)
+        return {"result": result}
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
 
 # ======================
 # 4–8. Other services (stubbed)
