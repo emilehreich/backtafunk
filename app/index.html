@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABS Metals Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <h1>ABS METALS Dashboard</h1>
+    <p>– Choisissez votre programme – (TIWICI)</p>
+  </div>
+
+  <div class="dashboard-container">
+    <button class="dashboard-button" onclick="openModal('routes')">
+      <div class="button-icon">🚛</div>
+      <div class="button-title">Routes</div>
+      <div class="button-subtitle">Gestion des livraisons</div>
+    </button>
+
+    <button class="dashboard-button" onclick="openModal('po-vs-commande')">
+      <div class="button-icon">📋</div>
+      <div class="button-title">PO v/s Commande</div>
+      <div class="button-subtitle">Contrôle automatique</div>
+    </button>
+
+    <button class="dashboard-button" onclick="openModal('achat-vs-invoice')">
+      <div class="button-icon">📦</div>
+      <div class="button-title">Achat v/s Invoice v/s Packing</div>
+      <div class="button-subtitle">Contrôle automatique</div>
+    </button>
+
+    <button class="dashboard-button" onclick="openModal('po-vs-pi')">
+      <div class="button-icon">📊</div>
+      <div class="button-title">PO v/s PI</div>
+      <div class="button-subtitle">Contrôle automatique</div>
+    </button>
+
+    <button class="dashboard-button" onclick="openModal('po-vs-mtc')">
+      <div class="button-icon">⚡</div>
+      <div class="button-title">PO v/s MTC</div>
+      <div class="button-subtitle">Contrôle et analyse</div>
+    </button>
+
+    <button class="dashboard-button" onclick="openModal('logistics')">
+      <div class="button-icon">🌍</div>
+      <div class="button-title">Logistique & Expéditions</div>
+      <div class="button-subtitle">Gestion des flux</div>
+    </button>
+
+    <button class="dashboard-button numerical-button" onclick="openModal('option7')">
+      <div class="button-icon">7</div>
+      <div class="button-title">Option 7</div>
+    </button>
+
+    <button class="dashboard-button numerical-button" onclick="openModal('option8')">
+      <div class="button-icon">8</div>
+      <div class="button-title">Option 8</div>
+    </button>
+
+    <button class="dashboard-button numerical-button" onclick="openModal('option9')">
+      <div class="button-icon">9</div>
+      <div class="button-title">Option 9</div>
+    </button>
+  </div>
+
+  <div id="modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <div id="file-inputs"></div>
+      <button onclick="submitForm()">📨 Envoyer</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© HIS 2025 Industrial Dashboard - ABS Metals</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
